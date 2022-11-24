@@ -18,9 +18,13 @@ public class GameField {
         this.width = width;
     }
 
-    //возможность скопировать поле
-    public String getField() {
-        return field;
+    // конструктор копирования
+    public GameField(GameField gameField){
+        this.width = gameField.width;
+        this.height = gameField.height;
+        this.numberOfUnits = gameField.numberOfUnits;
+        this.listOfUnits = gameField.listOfUnits;
+        this.field = gameField.field;
     }
 
     private boolean checkNumberOfUnits() {
@@ -142,7 +146,7 @@ public class GameField {
 
         System.out.println("chose direction to move:\n1 - up\n2 - down\n3 - left\n4 - right");
 
-        int direction = CheckInputService.inputInteger(listOfUnits.size(), "Incorrect input of direction");
+        int direction = CheckInputService.inputInteger(4, "Incorrect input of direction");
 
         int newIndex;
             switch (direction) {
